@@ -17,39 +17,13 @@
 	<h1 th:text="#{content.title}">Helo page</h1>
 	<p th:text="${msg}"></p>
 	<table>
-	<form method="post" action="/" th:object="${formModel}">
-		<tr><td><label for="name">이름</label></td>
-			<td><input type="text" name="name"
-				th:value="*{name}" th:errorclass="err" />
-			<div th:if="${#fields.hasErrors('name')}" 
-				th:errors="*{name}" th:errorclass="err">
-				</div></td></tr>
-		<tr><td><label for="age">연령</label></td>
-			<td><input type="text" name="age"
-				th:value="*{age}" th:errorclass="err" />
-			<div th:if="${#fields.hasErrors('age')}" 
-				th:errors="*{age}" th:errorclass="err">
-				</div></td></tr>
-		<tr><td><label for="mail">메일</label></td>
-			<td><input type="text" name="mail" 
-				th:value="*{mail}" th:errorclass="err" />
-			<div th:if="${#fields.hasErrors('mail')}" 
-				th:errors="*{mail}" th:errorclass="err">
-				</div></td></tr>
-		<tr><td><label for="memo">메모</label></td>
-			<td><textarea name="memo" th:text="*{memo}" 
-				th:errorclass="err" cols="20" rows="5" ></textarea>
-			<div th:if="${#fields.hasErrors('memo')}" 
-				th:errors="*{memo}" th:errorclass="err"></div></td></tr>
-		<tr><td></td><td><input type="submit" /></td></tr>
-	</form>
-	</table>
-	<hr/>
-	<table>
-	<tr><th>ID</th><th>이름</th></tr>
+	<tr><th>ID</th><th>이름</th><th>메일</th><th>연령</th><th>메모(tel)</th></tr>
 	<tr th:each="obj : ${datalist}">
 		<td th:text="${obj.id}"></td>
 		<td th:text="${obj.name}"></td>
+		<td th:text="${obj.mail}"></td>
+		<td th:text="${obj.age}"></td>
+		<td th:text="${obj.memo}"></td>
 	</tr>
 	</table>
 </body>

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import javax.validation.constraints.Max;
@@ -19,6 +20,9 @@ import com.example.demo.Phone;
 
 @Entity
 @Table(name="mydata")
+@NamedQuery(
+		name = "findByAge", 
+		query="from MyData where age > :min and age < :max")
 public class MyData {
 
 	@Id
@@ -41,7 +45,7 @@ public class MyData {
 	private Integer age;
 
 	@Column(nullable = true)
-	@Phone
+	@Phone(onlyNumber = true)
 	private String memo;
 
 	public long getId() {
