@@ -56,7 +56,7 @@ public class HelloController {
 			repository.saveAndFlush(mydata);
 			res = new ModelAndView("redirect:/");
 		}else
-		{
+		{ 
 			mav.setViewName("index" );
 			mav.addObject("msq","sorrt, error is occured...");
 			Iterable<MyData> list = repository.findAll();
