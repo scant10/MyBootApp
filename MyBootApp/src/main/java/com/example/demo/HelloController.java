@@ -40,8 +40,8 @@ public class HelloController {
 		mav.setViewName("index");
 		mav.addObject("msg","this is sample content.");
 		mav.addObject("formModel",mydata);
-		//Iterable<MyData> list = repository.findAll();
-		Iterable<MyData> list = dao.findByAge(10,40);  // repository.findAllOrderByName(); //dao.getAll();
+		Iterable<MyData> list = repository.findAll();
+//		Iterable<MyData> list = dao.findByAge(10,40);  // repository.findAllOrderByName(); //dao.getAll();
 		
 		mav.addObject("datalist",list);
 		return mav;
